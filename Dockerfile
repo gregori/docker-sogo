@@ -53,11 +53,11 @@ RUN chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-EXPOSE 80 443
+EXPOSE 20000
 
 #USER sogo
 # Baseimage init process
-CMD ["/usr/sbin/sogod", "-WONoDetach YES", "-WOLogFile -"]
+CMD ["sogod", "-WONoDetach", "YES", "-WOLogFile", "-"]
 #CMD ["ls", "-l", "/docker-entrypoint.sh"]
 #ENTRYPOINT ["gosu", "sogo", "/usr/sbin/sogod", "-WONoDetach YES", "-WOLogFile -"]
 # ENTRYPOINT ["cat", "/etc/sogo/sogo.conf"]
