@@ -36,19 +36,6 @@ ENV SOGO_SIEVESERVER sieve.pmjlle.joinville.sc.gov.br
 ENV SOGO_SMTPSERVER smtp.pmjlle.joinville.sc.gov.br
 ENV SOGO_MAILDOMAIN joinville.sc.gov.br
 
-RUN sed -i "s {SOGO_SGBD} $SOGO_SGBD g" /etc/sogo/sogo.conf && \
-	sed -i "s {SOGO_USER} $SOGO_USER g" /etc/sogo/sogo.conf && \
-	sed -i "s {SOGO_PASSWD} $SOGO_PASSWD g" /etc/sogo/sogo.conf && \
-	sed -i "s {SOGO_DBHOST} $SOGO_DBHOST g" /etc/sogo/sogo.conf && \
-	sed -i "s {SOGO_DBPORT} $SOGO_DBPORT g" /etc/sogo/sogo.conf && \
-	sed -i "s {SOGO_DATABASE} $SOGO_DATABASE g" /etc/sogo/sogo.conf && \
-	sed -i "s {SOGO_IMAPSERVER} $SOGO_IMAPSERVER g" /etc/sogo/sogo.conf && \
-	sed -i "s {SOGO_SIEVESERVER} $SOGO_SIEVESERVER g" /etc/sogo/sogo.conf && \
-	sed -i "s {SOGO_SMTPSERVER} $SOGO_SMTPSERVER g" /etc/sogo/sogo.conf && \
-	sed -i "s {SOGO_MAILDOMAIN} $SOGO_MAILDOMAIN g" /etc/sogo/sogo.conf 
-	
-
-
 # Activate required Apache modules
 # RUN a2enmod headers proxy proxy_http rewrite ssl
 
