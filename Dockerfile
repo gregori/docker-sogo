@@ -37,6 +37,7 @@ ENV SOGO_IMAPSERVER imap.pmjlle.joinville.sc.gov.br
 ENV SOGO_SIEVESERVER sieve.pmjlle.joinville.sc.gov.br
 ENV SOGO_SMTPSERVER smtp.pmjlle.joinville.sc.gov.br
 ENV SOGO_MAILDOMAIN joinville.sc.gov.br
+ENV SOGO_WOPORT 0.0.0.0:20000
 
 # Activate required Apache modules
 # RUN a2enmod headers proxy proxy_http rewrite ssl

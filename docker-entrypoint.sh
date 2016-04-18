@@ -10,6 +10,7 @@ sed -i "s {SOGO_DATABASE} $SOGO_DATABASE g" /etc/sogo/sogo.conf && \
 sed -i "s {SOGO_IMAPSERVER} $SOGO_IMAPSERVER g" /etc/sogo/sogo.conf && \
 sed -i "s {SOGO_SIEVESERVER} $SOGO_SIEVESERVER g" /etc/sogo/sogo.conf && \
 sed -i "s {SOGO_SMTPSERVER} $SOGO_SMTPSERVER g" /etc/sogo/sogo.conf && \
+sed -i "s {SOGO_WOPORT} $SOGO_WOPORT g" /etc/sogo/sogo.conf && \
 sed -i "s {SOGO_MAILDOMAIN} $SOGO_MAILDOMAIN g" /etc/sogo/sogo.conf 
 
 
