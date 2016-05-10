@@ -33,10 +33,11 @@ ENV SOGO_PASSWD sogopw
 ENV SOGO_DBHOST db
 ENV SOGO_DBPORT 5432
 ENV SOGO_DATABASE sogo
-ENV SOGO_IMAPSERVER imap.pmjlle.joinville.sc.gov.br
+ENV SOGO_IMAPSERVER imaps://imap.pmjlle.joinville.sc.gov.br:993
 ENV SOGO_SIEVESERVER sieve.pmjlle.joinville.sc.gov.br
 ENV SOGO_SMTPSERVER smtp.pmjlle.joinville.sc.gov.br
 ENV SOGO_MAILDOMAIN joinville.sc.gov.br
+ENV SOGO_MEMCACHED pmj-memcache
 ENV SOGO_WOPORT 0.0.0.0:20000
 
 # Activate required Apache modules
