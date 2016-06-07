@@ -1,0 +1,24 @@
+# https://docs.docker.com/compose/compose-file/
+# https://docs.docker.com/compose/production/
+
+version: '2'
+services:
+  memcached:
+    image: alloylab/memcached
+    restart: "always"
+  sogo:
+    image: registry.pmjlle.joinville.sc.gov.br:5000/pmj/sogo
+    restart: "always"
+    ports:
+      - "20000:20000"
+    links:
+      - memcached
+    environment:
+      - SOGO_PASSWD
+      - SOGO_DBHOST
+      - SOGO_IMAPSERVER
+      - SOGO_SIEVESERVER
+      - SOGO_SMTPSERVER
+      - SOGO_MAILDOMAIN
+      - SOGO_MEMCACHED=memcached
+E

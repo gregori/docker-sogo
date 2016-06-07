@@ -1,7 +1,6 @@
 FROM debian:jessie
 MAINTAINER	Rodrigo Gregori <spam@gregori.eti.br>
 
-
 # Install SOGo from repository
 RUN echo "deb http://inverse.ca/debian-v3 jessie jessie" > /etc/apt/sources.list.d/inverse.list && \
     apt-key adv --keyserver pool.sks-keyservers.net --recv-key FE9E84327B18FF82B0378B6719CDA6A9810273C4 && \
@@ -33,31 +32,12 @@ ENV SOGO_PASSWD sogopw
 ENV SOGO_DBHOST db
 ENV SOGO_DBPORT 5432
 ENV SOGO_DATABASE sogo
-ENV SOGO_IMAPSERVER imaps://imap.pmjlle.joinville.sc.gov.br:993
-ENV SOGO_SIEVESERVER sieve.pmjlle.joinville.sc.gov.br
-ENV SOGO_SMTPSERVER smtp.pmjlle.joinville.sc.gov.br
-ENV SOGO_MAILDOMAIN joinville.sc.gov.br
-ENV SOGO_MEMCACHED pmj-memcache
+ENV SOGO_IMAPSERVER imaps://imap.example.com:993
+ENV SOGO_SIEVESERVER sieve.example.com
+ENV SOGO_SMTPSERVER smtp.example.com
+ENV SOGO_MAILDOMAIN example.com
+ENV SOGO_MEMCACHED memcached
 ENV SOGO_WOPORT 0.0.0.0:20000
-
-# Activate required Apache modules
-# RUN a2enmod headers proxy proxy_http rewrite ssl
-
-# Move SOGo's data directory to /srv
-# RUN usermod --home /srv/lib/sogo sogo
-
-# Fix memcached not listening on IPv6
-# RUN sed -i -e 's/^-l.*/-l localhost/' /etc/memcached.conf
-
-# SOGo daemons
-# RUN mkdir /etc/service/sogod /etc/service/apache2 /etc/service/memcached
-# ADD sogod.sh /etc/service/sogod/run
-# ADD apache2.sh /etc/service/apache2/run
-# ADD memcached.sh /etc/service/memcached/run
-
-# Make GATEWAY host available, control memcached startup
-# RUN mkdir -p /etc/my_init.d
-# ADD gateway.sh memcached-control.sh /etc/my_init.d/
 
 # Interface the environment
 VOLUME /srv
@@ -70,9 +50,5 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 20000
 
-#USER sogo
 # Baseimage init process
 CMD ["sogod", "-WONoDetach", "YES", "-WOLogFile", "-"]
-#CMD ["ls", "-l", "/docker-entrypoint.sh"]
-#ENTRYPOINT ["gosu", "sogo", "/usr/sbin/sogod", "-WONoDetach YES", "-WOLogFile -"]
-# ENTRYPOINT ["cat", "/etc/sogo/sogo.conf"]
